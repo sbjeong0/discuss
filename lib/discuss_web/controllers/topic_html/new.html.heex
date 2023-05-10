@@ -1,3 +1,13 @@
-<.topic_form changeset={@changeset} />
+<.header>
+New Topic
+</.header>
 
-<.back navigate={~p"/topics"}>Back to topics</.back>
+<.simple_form
+    :let={f} for={@changeset}
+    action={~p"/topics"}>
+    <.input field={f[:title]} type="text" label="Title" />
+    <.error class="help-block"><%= inspect @changeset.errors %></.error>
+    <:actions>
+    <.button>Save Topic</.button>
+    </:actions>
+</.simple_form>

@@ -21,7 +21,7 @@ defmodule DiscussWeb do
 
   def router do
     quote do
-      use Phoenix.Router, helpers: false
+      use Phoenix.Router, helpers: true
 
       # Import common connection and controller functions to use in pipelines
       import Plug.Conn
@@ -69,6 +69,7 @@ defmodule DiscussWeb do
   def html do
     quote do
       use Phoenix.Component
+      import Phoenix.HTML.Form # !!!!!
 
       # Import convenience functions from controllers
       import Phoenix.Controller,
