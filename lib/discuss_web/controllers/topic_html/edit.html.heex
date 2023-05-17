@@ -1,0 +1,8 @@
+<.simple_form
+    :let={f} for={@changeset}
+    action={~p"/topics/#{@topic}"}>
+        <.input field={f[:title]} type="text" label="Title" />
+    <:actions>
+        <.button class="btn-primary">Update Topic</.button>
+    </:actions>
+</.simple_form>
