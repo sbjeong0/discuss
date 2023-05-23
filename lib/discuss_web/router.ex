@@ -16,18 +16,25 @@ defmodule DiscussWeb.Router do
 
   scope "/", DiscussWeb do
     pipe_through :browser
-    get "/test", PageController, :test
-    get "/", TopicController, :index
-    get "/topics/new", TopicController, :new
-    post "/topics", TopicController, :create
-    get "topics/:id", TopicController, :show
-    get "/topics/:id/edit", TopicController, :edit
-    put "/topics/:id", TopicController, :update
+    # get "/test", PageController, :test
+    # get "/", TopicController, :index
+    # get "/topics/new", TopicController, :new
+    # post "/topics", TopicController, :create
+    # get "topics/:id", TopicController, :show
+    # get "/topics/:id/edit", TopicController, :edit
+    # put "/topics/:id", TopicController, :update
+    resources "/topics", TopicController
   end
 
   # Other scopes may use custom stacks.
   scope "/api", DiscussWeb do
     pipe_through :api
+  end
+
+  scope "/auth", DiscussWeb do
+    pipe_through :browser
+    get "/:provider", AuthController, :request
+    get "/:provider/callback", AuthController, :callback
   end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development

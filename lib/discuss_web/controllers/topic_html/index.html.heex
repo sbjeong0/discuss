@@ -5,6 +5,7 @@
       <%= topic.title %>
       <div class="right">
         <.link href={~p"/topics/#{topic.id}/edit"}>Edit</.link>
+        <.link href={~p"/topics/#{topic}"} method="delete">Delete</.link>
       </div>
     </li>
   <% end %>

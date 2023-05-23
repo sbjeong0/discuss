@@ -41,9 +41,17 @@ defmodule DiscussWeb.TopicController do
       {:ok, _topic} ->
         conn
         |> put_flash(:info, "Topic Updated")
-        |> redirect(to: ~p"/")
+        |> redirect(to: ~p"/topics")
       {:error, changeset} ->
         render(conn, :new, changeset: changeset)
     end
+  end
+
+  def delete(conn, %{"id" => topic_id}) do
+    Repo.get!(Topic, topic_id) |> Repo.delete!
+
+    conn
+    |> put_flash(:info, "Topic Deleted")
+    |> redirect(to: ~p"/topics")
   end
 end
