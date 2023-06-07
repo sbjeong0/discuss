@@ -41,4 +41,10 @@ defmodule DiscussWeb.AuthController do
         {:ok, user}
     end
   end
+
+  def signout(conn, changeset) do
+    conn
+    |> configure_session(drop: true)
+    |> redirect(to: ~p"/topics")
+  end
 end
