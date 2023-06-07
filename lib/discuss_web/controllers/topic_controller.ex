@@ -3,7 +3,7 @@ defmodule DiscussWeb.TopicController do
 
   alias Discuss.Repo
 
-  alias DiscussWeb.Modles.Topic
+  alias DiscussWeb.Models.Topic
   def new(conn, _params) do
     changeset = Topic.changeset(%Topic{}, %{})
     render(conn, :new, changeset: changeset)
