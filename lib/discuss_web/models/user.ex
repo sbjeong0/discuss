@@ -7,7 +7,7 @@ defmodule DiscussWeb.Models.User do
     field :provider, :string
     field :token, :string
     has_many :topics, DiscussWeb.Models.Topic
-
+    has_many :comments, DiscussWeb.Models.Comment
 
     timestamps()
   end
